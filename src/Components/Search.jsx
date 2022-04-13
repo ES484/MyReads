@@ -8,9 +8,9 @@ export default function Search(props) {
   {
     try {let query= e.target.value;
       let result = await search(query);
-      result = result.filter((book)=> {return book.title.includes(query)});
+      //Update it to allow search more than one string
+      result = result.filter((book)=> {return book.title.toLowerCase().includes(query.toLowerCase())});
       setBooks(result);
-      
     } catch (error) {
       setBooks([]);
     }
