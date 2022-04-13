@@ -19,6 +19,19 @@ html, body, .root {
 body {
   line-height: 1.5;
 }
+.notFound
+{
+  background-color: lightgray;
+  text-align: center;
+}
+.notFound h3
+{
+  font-size: 8rem;
+}
+.notFound h4
+{
+  font-size: 5rem;
+}
 
 body, .app {
   background: white;

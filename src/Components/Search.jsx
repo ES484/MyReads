@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {search} from '../BooksAPI';
 import Book from './Book';
 export default function Search(props) {
-  const [books, setBooks] = useState(null)
+  const [books, setBooks] = useState(null);
   async function handleInsertData(e)
   {
     try {let query= e.target.value;
@@ -12,7 +12,7 @@ export default function Search(props) {
       setBooks(result);
       
     } catch (error) {
-      console.log(error)
+      setBooks([]);
     }
     }
   return (
@@ -34,9 +34,9 @@ export default function Search(props) {
         </div>
             <div className='row'>
                 {books? books.map((book)=>
-                <div className='col-md-2'>
+                <div className='col-md-3' key={book.id}>
                 <div>
-                <div className="list-books-content searchBooks" key={book.id}>
+                <div className="list-books-content searchBooks">
                   <div>
                     <Book {...book}/>
                   </div>
@@ -44,7 +44,7 @@ export default function Search(props) {
                 </div>
               </div>
           )
-          : <div className='col-md-8 offset-md-2'>
+          :<div className='col-md-8 offset-md-2'>
             <div>
               <h2>Please Enter Book Name</h2>
             </div>
